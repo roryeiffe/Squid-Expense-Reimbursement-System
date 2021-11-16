@@ -1,0 +1,70 @@
+Project planning:
+
+Classes/Tables:
+Employee:
+	int id
+	String name
+	String email
+	String password
+
+	void login
+	void submitRequest
+	void viewPendingRequests
+	void viewPastRequests
+
+Manager:
+	int id
+	String name
+	String email
+	String password
+
+	void viewRequests
+	void approveRequest
+	void viewHistoryAll
+
+Request:
+	int id
+	int empId references Employee(id)
+	String title
+	String description
+
+Inheritance(?):
+			User
+		   /	\
+		 Empl  Manager
+
+
+Front-end:
+	Pages:
+		Employee Login Form   1 servlet
+		Manager Login Form    1 servlet
+		Submit Request Form   1 servlet
+
+		View Requests    (Might need 4 servlets but could probably do less (1 or 2)
+			For specific Employee
+				1. past requests
+				2. pending requests
+			For all employees
+				3. pending requests
+				4. past requests
+
+Dao:
+UserDao
+	insert user
+	delete user
+
+Tasks:
+
+Person 1 (Users):
+	Create employee and manager classes + tables, login forms
+
+Person 2 (Transactions):
+	Create request form for reimbursement, also be able to view transactions/approve of them
+
+Later, regroup and add checks for employee vs manager (ex: only manager can approve requests, etc.())
+
+Notes:
+ - Functionality first, styling later
+
+Question: 
+Register?
