@@ -4,4 +4,26 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+    <servlet-name>reimbursementRequest</servlet-name>
+    <servlet-class>RequestServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>viewRequest</servlet-name>
+    <servlet-class>ViewRequestServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>reimbursementRequest</servlet-name>
+    <url-pattern>/request</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>viewRequest</servlet-name>
+    <url-pattern>/viewRequest</url-pattern>
+  </servlet-mapping>
+
+
 </web-app>

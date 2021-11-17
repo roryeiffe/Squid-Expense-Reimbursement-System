@@ -13,14 +13,17 @@ public class Reimbursement {
     private String title;
     // descrption of this request:
     private String description;
+    // amount of the reimbursement request
+    private int amount;
     private String status;
 
     public Reimbursement() {}
 
-    public Reimbursement(int empId, String title, String description, String status) {
+    public Reimbursement(int empId, String title, String description, int amount, String status) {
         this.empId = empId;
         this.title = title;
         this.description = description;
+        this.amount = amount;
         this.status = status;
     }
 
@@ -56,6 +59,14 @@ public class Reimbursement {
         this.description = description;
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -64,6 +75,7 @@ public class Reimbursement {
         this.status = status;
     }
 
+
     @Override
     public String toString() {
         return "Reimbursement{" +
@@ -71,6 +83,7 @@ public class Reimbursement {
                 ", empId=" + empId +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
+                ", amount=" + amount +
                 ", status='" + status + '\'' +
                 '}';
     }

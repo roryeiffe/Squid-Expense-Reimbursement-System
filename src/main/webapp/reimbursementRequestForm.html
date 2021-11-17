@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Submit Reimbursement Request</title>
 </head>
 <body>
+    <h1>
+        Reimbursement Request Form
+    </h1>
+
+    <form action = "request" method = "post" >
+        <input type = "text" name = "title" placeholder="Enter title"> </br>
+        <textarea name = "description" placeholder="Enter Description"></textarea></br>
+        <input type = "number" name = "amount" placeholder="Enter amount"/></br>
+        <input id = "submit" type = "submit" value = "Request" onclick="loading()"/>
+        <p id = "load"></p>
+    </form>
+
+    <script>
+        function loading() {
+            document.getElementById("submit").style.display = "none";
+            document.getElementById("load").innerHTML = "loading...";
+        }
+    </script>
 
 </body>
 </html>
