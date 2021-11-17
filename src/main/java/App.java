@@ -18,7 +18,7 @@ public class App {
         // create some reimbursements for employee with id 2:
         Reimbursement reimbursement4 = new Reimbursement(2,"test","Took Python certification test",50,  "pending");
         Reimbursement reimbursement5 = new Reimbursement(2,"food","burgers with the bros", 25, "approved");
-        Reimbursement reimbursement6 = new Reimbursement(2,"food","pizza party Friday", 200, "approved");
+        Reimbursement reimbursement6 = new Reimbursement(2,"food","pizza party Friday", 200, "rejected");
 
 //        Test insertion:
         dao.insert(reimbursement1);

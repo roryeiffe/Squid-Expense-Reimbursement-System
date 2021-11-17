@@ -12,12 +12,12 @@
 
   <servlet>
     <servlet-name>viewRequest</servlet-name>
-    <servlet-class>ViewRequestServlet</servlet-class>
+    <servlet-class>ViewServlet</servlet-class>
   </servlet>
 
   <servlet>
     <servlet-name>updateReimbursement</servlet-name>
-    <servlet-class>UpdateReimbursementServlet</servlet-class>
+    <servlet-class>UpdateServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>

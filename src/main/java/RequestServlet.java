@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 
 public class RequestServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        // set up print writer:
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
@@ -15,29 +16,25 @@ public class RequestServlet extends HttpServlet {
         String title = request.getParameter("title");
         String description = request.getParameter("description");
         int amount = Integer.parseInt(request.getParameter("amount"));
+
         // default to pending
         String status = "pending";
         // TODO: Get employee id from session/cookie/wherever it is stored:
         int empId = 1;
 
+        // create a reimbursement object:
         Reimbursement reimbursement = new Reimbursement(empId, title, description, amount, status);
-        // create a dao:
+        // create a dao TODO create a dao factory class:
         ReimbursementDao dao = new ReimbursementDao();
-        // first, create a session:
         dao.openCurrentSessionWithTransaction();
-        // insert reimbursement:
+        // insert reimbursement and commit transaction:
         dao.insert(reimbursement);
-        // commit transaction:
         dao.commitAndClose();
 
         // TODO check for success/failure
         out.println("You request was submitted successfully!");
         // display message on same page:
-        RequestDispatcher rd = request.getRequestDispatcher("/reimbursementRequestForm.html");
+        RequestDispatcher rd = request.getRequestDispatcher("/Request.html");
         rd.include(request,response);
-
-
-
-
     }
 }

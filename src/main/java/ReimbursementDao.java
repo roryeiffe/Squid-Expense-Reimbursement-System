@@ -97,9 +97,12 @@ public class ReimbursementDao {
     public List<Reimbursement> getReimbursements(int empId, String status){
         // construct query string from arguments
         String hql = "FROM Reimbursement R ";
-        hql += "WHERE R.status LIKE '" + status + "'";
-        // if empId is not -1, then we only want
-        // reimbursements for a specific employee:
+        // default to show all statuses:
+        hql += "WHERE R.status LIKE '%' ";
+        // get approved/rejected reimbursements:
+        if (status.equals("past")) hql += "AND R.status = 'approved' OR R.status = 'rejected'";
+        else if (status.equals("pending")) hql += "AND R.status = 'pending'";
+        // unless we are a manager, only show reimbursements for the given employee:
         if(empId != -1) {
             hql += "AND empId = " + empId;
         }

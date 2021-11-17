@@ -25,7 +25,7 @@ Manager:
 	void approveRequest
 	void viewHistoryAll
 
-Request:
+RequestServlet:
 	int id
 	int empId references Employee(id)
 	String title
@@ -42,7 +42,7 @@ Front-end:
 	Pages:
 		Employee Login Form   1 servlet
 		Manager Login Form    1 servlet
-		Submit Request Form   1 servlet
+		Submit RequestServlet Form   1 servlet
 
 		View Requests    (Might need 4 servlets but could probably do less (1 or 2)
 			For specific Employee

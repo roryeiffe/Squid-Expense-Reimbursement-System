@@ -7,9 +7,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-public class ViewRequestServlet extends HttpServlet {
+public class ViewServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        // set up print writer:
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
@@ -27,7 +28,7 @@ public class ViewRequestServlet extends HttpServlet {
         List<Reimbursement> reimbursementList = dao.getReimbursements(id,status);
         dao.commitAndClose();
 
-        // employee view:
+        // employee view, just show the information, don't allow any changes::
         if(id > -1) {
             // construct table
             out.print("<table border = '1'> <tr> <th>Title</th> <th>Description</th> <th>Amount</th> <th>Status</th> </tr>");
@@ -45,7 +46,9 @@ public class ViewRequestServlet extends HttpServlet {
         // manager view:
         else{
             // construct table
-            out.print("<table border = '1'> <tr> <th>Employee</th> <th>Title</th> <th>Description</th> <th>Amount</th> <th>Status</th> <th>Approve</th> <th>Reject</th> </tr>");
+            out.print("<table border = '1'> <tr> <th>Employee</th> <th>Title</th> <th>Description</th> <th>Amount</th> <th>Status</th>");
+            if(status.equals("pending")) out.print("<th>Approve</th> <th>Reject</th>");
+            out.print("</tr>");
             for(Reimbursement reimbursement: reimbursementList) {
                 // create a row for each reimbursement:
                 out.print("<tr>");
@@ -56,7 +59,7 @@ public class ViewRequestServlet extends HttpServlet {
                 out.print("<td>" + reimbursement.getDescription() + "</td>");
                 out.print("<td>" + reimbursement.getAmount() + "</td>");
                 out.print("<td>" + reimbursement.getStatus() + "</td>");
-                // if this is a pending reimbursemet, print out the option to approve/reject
+                // if this is a pending reimbursemet, print out the options to approve/reject
                 if(status.equals("pending")) {
                     out.print("<td><input type = 'radio' name = 'action' value = 'approve' checked = 'checked'/></td>");
                     out.print("<td><input type = 'radio' name = 'action' value = 'reject'/></td>");
