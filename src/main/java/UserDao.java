@@ -4,13 +4,13 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
-public class EmployeeDao implements  EmployeeDaoInterface{
+public class UserDao implements  UserDaoInterface{
 
     private Session currentSession;
 
     private Transaction currentTransaction;
 
-    public EmployeeDao(){
+    public UserDao(){
 
     }
 
@@ -60,21 +60,6 @@ public class EmployeeDao implements  EmployeeDaoInterface{
 
     @Override
     public void login() {
-
-    }
-
-    @Override
-    public void submitRequest() {
-
-    }
-
-    @Override
-    public void viewPendingRequests() {
-
-    }
-
-    @Override
-    public void viewPastRequests() {
 
     }
 }
