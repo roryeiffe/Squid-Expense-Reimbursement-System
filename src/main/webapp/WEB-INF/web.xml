@@ -14,6 +14,11 @@
     <servlet-name>viewRequest</servlet-name>
     <servlet-class>ViewRequestServlet</servlet-class>
   </servlet>
+
+  <servlet>
+    <servlet-name>updateReimbursement</servlet-name>
+    <servlet-class>UpdateReimbursementServlet</servlet-class>
+  </servlet>
   
   <servlet-mapping>
     <servlet-name>reimbursementRequest</servlet-name>
@@ -23,6 +28,11 @@
   <servlet-mapping>
     <servlet-name>viewRequest</servlet-name>
     <url-pattern>/viewRequest</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>updateReimbursement</servlet-name>
+    <url-pattern>/updateReimbursement</url-pattern>
   </servlet-mapping>
 
 
