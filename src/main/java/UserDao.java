@@ -97,7 +97,6 @@ public class UserDao{
         }catch (Exception e){
             if (transaction != null){
                 transaction.rollback();
-                //System.out.println("You have issues..");
             }
             e.printStackTrace();
         }
