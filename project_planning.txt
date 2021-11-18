@@ -8,6 +8,8 @@ Employee:
 	String password
 
 	void login
+
+	// Rory
 	void submitRequest
 	void viewPendingRequests
 	void viewPastRequests
@@ -18,15 +20,17 @@ Manager:
 	String email
 	String password
 
+	// Rory
 	void viewRequests
 	void approveRequest
 	void viewHistoryAll
 
-Request:
+reimbursement.RequestServlet:
 	int id
 	int empId references Employee(id)
 	String title
 	String description
+	String status
 
 Inheritance(?):
 			User
@@ -38,7 +42,7 @@ Front-end:
 	Pages:
 		Employee Login Form   1 servlet
 		Manager Login Form    1 servlet
-		Submit Request Form   1 servlet
+		Submit reimbursement.RequestServlet Form   1 servlet
 
 		View Requests    (Might need 4 servlets but could probably do less (1 or 2)
 			For specific Employee
@@ -55,10 +59,10 @@ UserDao
 
 Tasks:
 
-Person 1 (Users):
+Person 1 (Users) AJ:
 	Create employee and manager classes + tables, login forms
 
-Person 2 (Transactions):
+Person 2 (Transactions) Rory:
 	Create request form for reimbursement, also be able to view transactions/approve of them
 
 Later, regroup and add checks for employee vs manager (ex: only manager can approve requests, etc.())
@@ -68,3 +72,11 @@ Notes:
 
 Question: 
 Register?
+
+<input> id
+<input> password
+<input> type manager or employee
+
+TODO:
+AJ: Add functionality to differentiate between employee and manager
+Rory: Update approve/reject form to have on "update" button
