@@ -42,7 +42,7 @@ public class RequestServlet extends HttpServlet {
 
         // TODO check for success/failure
         out.print("<div class=\"alert alert-success\" alert-dismissible\" role=\"alert\"> Your request was submitted successfully! <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
-        RequestDispatcher rd = request.getRequestDispatcher("/Request.html");
+        RequestDispatcher rd = request.getRequestDispatcher("/SubmitRequest.jsp");
         rd.include(request,response);
     }
 }
