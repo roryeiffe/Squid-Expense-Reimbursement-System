@@ -39,12 +39,18 @@ public class LoginServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
-        if(loginDao.validate(email, password)){
-            RequestDispatcher dispatcher = req.getRequestDispatcher("loginsuccess.html");
+        User user = new User();
+        user = loginDao.validate(email, password);
+
+        if(user.isMang() == true){
+            RequestDispatcher dispatcher = req.getRequestDispatcher("loginsuccessmanager.html");
             dispatcher.forward(req,resp);
-            System.out.println("Welcome!");
+            System.out.println("Welcome "+ user.getName());
         } else{
-            throw new Exception("Login not successful...");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("loginsuccessemployee.html");
+            dispatcher.forward(req, resp);
+            System.out.println("Welcome "+ user.getName());
+            //throw new Exception("Login not successful...");
         }
     }
 }

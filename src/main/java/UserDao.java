@@ -1,9 +1,7 @@
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import javax.persistence.Query;
 
 public class UserDao{
 
@@ -80,7 +78,7 @@ public class UserDao{
         }
     }
 
-    public boolean validate(String email, String password){
+    public User validate(String email, String password){
         Transaction transaction = null;
         User user = null;
         try(Session session = getSessionFactory().openSession()){
@@ -90,7 +88,8 @@ public class UserDao{
             user = (User) session.createQuery("FROM User u WHERE u.email LIKE :useremail").setParameter("useremail", email).getSingleResult();
 
             if (user != null && user.getPassword().equals(password)){
-                return true;
+                return user;
+                //return true;
             }
             //commit transaction
             transaction.commit();
@@ -100,7 +99,7 @@ public class UserDao{
             }
             e.printStackTrace();
         }
-        return false;
+        return null;
     }
 
 }

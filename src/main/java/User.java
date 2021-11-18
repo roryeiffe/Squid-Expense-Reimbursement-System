@@ -11,6 +11,7 @@ public class User {
     private String name;
     private String email;
     private String password;
+    private boolean isMang;
 
     public User() {
 
@@ -59,5 +60,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isMang() {
+        return isMang;
+    }
+
+    public void setMang(boolean mang) {
+        isMang = mang;
     }
 }
