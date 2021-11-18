@@ -54,6 +54,17 @@
         }
     </script>
 
+    <script>
+        fetch('/checkLoggedIn')
+            .then(response => response.json())
+            .then(function(data){
+                console.log(data);
+            })
+            .catch(function(error){
+                console.log(error)
+            })
+    </script>
+
 
 </body>
 </html>
