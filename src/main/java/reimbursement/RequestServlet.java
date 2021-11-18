@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -22,7 +23,13 @@ public class RequestServlet extends HttpServlet {
         // default to pending
         String status = "pending";
         // TODO: Get employee id from session/cookie/wherever it is stored:
-        int empId = 1;
+        HttpSession session = request.getSession(false);
+        String userType = (String)session.getAttribute("userType");
+        int empId = (Integer) session.getAttribute("userId");
+        if(userType.equals("manager")) {
+            out.print("managers cannot submit requests");
+        }
+
 
         // create a reimbursement object:
         Reimbursement reimbursement = new Reimbursement(empId, title, description, amount, status);

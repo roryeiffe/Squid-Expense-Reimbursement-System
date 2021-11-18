@@ -16,6 +16,7 @@
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
 
+  <servlet>
     <servlet-name>reimbursementRequest</servlet-name>
     <servlet-class>reimbursement.RequestServlet</servlet-class>
   </servlet>
