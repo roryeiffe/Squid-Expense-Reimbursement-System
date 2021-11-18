@@ -39,10 +39,11 @@ public class UserDao{
 
     // return factory
     private static SessionFactory getSessionFactory(){
-        Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
-                .applySettings(cfg.getProperties());
-        SessionFactory sessionFactory = cfg.buildSessionFactory(builder.build());
+        Configuration cfg = new Configuration();
+
+        cfg.configure("hibernate.cfg.xml");
+
+        SessionFactory sessionFactory = cfg.buildSessionFactory();
         return sessionFactory;
     }
 

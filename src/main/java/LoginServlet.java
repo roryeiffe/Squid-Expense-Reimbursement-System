@@ -39,23 +39,23 @@ public class LoginServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
-        Configuration cfg = new Configuration();
-        cfg.configure("hibernate.cfg.xml");
-        SessionFactory factory = cfg.buildSessionFactory();
-        Session session = factory.openSession();
-
-//        String hql = "FROM User u WHERE u.email LIKE :useremail";
-//        Query qry = session.createQuery(hql);
-//        Query qry2 = qry.setParameter("useremail", email);
-//        User user = (User) qry2.getSingleResult();
-        User user = (User) session.createQuery("FROM User u WHERE u.email LIKE :useremail").setParameter("useremail", email).getSingleResult();
-        System.out.println(user.getEmail() + user.getPassword());
-//        if(loginDao.validate(email, password)){
-//            RequestDispatcher dispatcher = req.getRequestDispatcher("loginsuccess.html");
-//            dispatcher.forward(req,resp);
-//            System.out.println("Welcome!");
-//        } else{
-//            throw new Exception("Login not successful...");
-//        }
+//        Configuration cfg = new Configuration();
+//        cfg.configure("hibernate.cfg.xml");
+//        SessionFactory factory = cfg.buildSessionFactory();
+//        Session session = factory.openSession();
+//
+////        String hql = "FROM User u WHERE u.email LIKE :useremail";
+////        Query qry = session.createQuery(hql);
+////        Query qry2 = qry.setParameter("useremail", email);
+////        User user = (User) qry2.getSingleResult();
+//        User user = (User) session.createQuery("FROM User u WHERE u.email LIKE :useremail").setParameter("useremail", email).getSingleResult();
+//        System.out.println(user.getEmail() + user.getPassword());
+        if(loginDao.validate(email, password)){
+            RequestDispatcher dispatcher = req.getRequestDispatcher("loginsuccess.html");
+            dispatcher.forward(req,resp);
+            System.out.println("Welcome!");
+        } else{
+            throw new Exception("Login not successful...");
+        }
     }
 }
