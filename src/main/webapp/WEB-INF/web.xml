@@ -30,6 +30,11 @@
     <servlet-name>updateReimbursement</servlet-name>
     <servlet-class>reimbursement.UpdateServlet</servlet-class>
   </servlet>
+
+  <servlet>
+    <servlet-name>checkLoggedIn</servlet-name>
+    <servlet-class>checkLoggedInServlet</servlet-class>
+  </servlet>
   
   <servlet-mapping>
     <servlet-name>reimbursementRequest</servlet-name>
@@ -44,6 +49,11 @@
   <servlet-mapping>
     <servlet-name>updateReimbursement</servlet-name>
     <url-pattern>/updateReimbursement</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>checkLoggedIn</servlet-name>
+    <url-pattern>/checkLoggedIn</url-pattern>
   </servlet-mapping>
 
 
