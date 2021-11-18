@@ -39,7 +39,7 @@ public class UpdateServlet extends HttpServlet {
 
         // let the user know that the update was successful:
         out.print("reimbursement.Reimbursement request updated!");
-        RequestDispatcher rd = request.getRequestDispatcher("/View.html");
+        RequestDispatcher rd = request.getRequestDispatcher("/View.jsp");
         rd.include(request, response);
     }
 }
