@@ -88,12 +88,6 @@ public class UserDao{
             transaction = session.beginTransaction();
             //get user object
             user = (User) session.createQuery("FROM User u WHERE u.email LIKE :useremail").setParameter("useremail", email).getSingleResult();
-            //List users = session.createQuery("FROM User u").getResultList();
-            //System.out.println(users);
-            //Query qry2 = qry.setParameter("useremail", email);
-            //user = (User) qry.setParameter("useremail", email);
-            //user = (User) qry2.uniqueResult();
-            //user = (User) getCurrentSession().get(User.class, email);
 
             if (user != null && user.getPassword().equals(password)){
                 return true;
