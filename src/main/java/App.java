@@ -1,5 +1,6 @@
-import java.util.ArrayList;
-import java.util.Arrays;
+import reimbursement.Reimbursement;
+import reimbursement.ReimbursementDao;
+
 import java.util.List;
 
 public class App {
@@ -13,12 +14,12 @@ public class App {
         // create some reimbursements for employee with id 1:
         Reimbursement reimbursement1 = new Reimbursement(1, "food", "lunch with client", 50, "pending");
         Reimbursement reimbursement2 = new Reimbursement(1, "gas", "driving to client", 30, "pending");
-        Reimbursement reimbursement3 = new Reimbursement(1, "food", "dinner with client", 100, "approved");
+        Reimbursement reimbursement3 = new Reimbursement(1, "food", "dinner with client", 100, "pending");
 
         // create some reimbursements for employee with id 2:
         Reimbursement reimbursement4 = new Reimbursement(2,"test","Took Python certification test",50,  "pending");
-        Reimbursement reimbursement5 = new Reimbursement(2,"food","burgers with the bros", 25, "approved");
-        Reimbursement reimbursement6 = new Reimbursement(2,"food","pizza party Friday", 200, "rejected");
+        Reimbursement reimbursement5 = new Reimbursement(2,"food","burgers with the bros", 25, "pending");
+        Reimbursement reimbursement6 = new Reimbursement(2,"food","pizza party Friday", 200, "pending");
 
 //        Test insertion:
         dao.insert(reimbursement1);

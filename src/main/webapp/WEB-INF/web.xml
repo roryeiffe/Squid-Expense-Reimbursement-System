@@ -7,17 +7,17 @@
 
   <servlet>
     <servlet-name>reimbursementRequest</servlet-name>
-    <servlet-class>RequestServlet</servlet-class>
+    <servlet-class>reimbursement.RequestServlet</servlet-class>
   </servlet>
 
   <servlet>
     <servlet-name>viewRequest</servlet-name>
-    <servlet-class>ViewServlet</servlet-class>
+    <servlet-class>reimbursement.ViewServlet</servlet-class>
   </servlet>
 
   <servlet>
     <servlet-name>updateReimbursement</servlet-name>
-    <servlet-class>UpdateServlet</servlet-class>
+    <servlet-class>reimbursement.UpdateServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>

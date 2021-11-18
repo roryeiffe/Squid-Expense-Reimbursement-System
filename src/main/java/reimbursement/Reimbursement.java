@@ -1,3 +1,5 @@
+package reimbursement;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -78,7 +80,7 @@ public class Reimbursement {
 
     @Override
     public String toString() {
-        return "Reimbursement{" +
+        return "reimbursement.Reimbursement{" +
                 "id=" + id +
                 ", empId=" + empId +
                 ", title='" + title + '\'' +

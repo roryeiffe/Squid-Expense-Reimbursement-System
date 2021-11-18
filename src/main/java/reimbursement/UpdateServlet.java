@@ -1,3 +1,5 @@
+package reimbursement;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +38,7 @@ public class UpdateServlet extends HttpServlet {
         dao.commitAndClose();
 
         // let the user know that the update was successful:
-        out.print("Reimbursement request updated!");
+        out.print("reimbursement.Reimbursement request updated!");
         RequestDispatcher rd = request.getRequestDispatcher("/View.html");
         rd.include(request, response);
     }

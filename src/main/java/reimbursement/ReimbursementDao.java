@@ -1,13 +1,11 @@
+package reimbursement;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 // https://examples.javacodegeeks.com/enterprise-java/hibernate/hibernate-jpa-dao-example/
@@ -96,7 +94,7 @@ public class ReimbursementDao {
     // which have those statuses, or % to retrieve all statues
     public List<Reimbursement> getReimbursements(int empId, String status){
         // construct query string from arguments
-        String hql = "FROM Reimbursement R ";
+        String hql = "FROM reimbursement.Reimbursement R ";
         // default to show all statuses:
         hql += "WHERE R.status LIKE '%' ";
         // get approved/rejected reimbursements:
