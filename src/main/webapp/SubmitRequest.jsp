@@ -41,6 +41,7 @@
             <div id = "alert">
 
             </div>
+
             <h1 class = "h1">
                 Request Reimbursement
             </h1>
@@ -65,6 +66,9 @@
     </script>
 
 
+<div class="alert alert-success" role="alert">
+  This is a success alert-check it out!
+</div>
 
 </body>
 </html>
