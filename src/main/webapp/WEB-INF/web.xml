@@ -6,6 +6,16 @@
   <display-name>Archetype Created Web Application</display-name>
 
   <servlet>
+
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>LoginServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+
     <servlet-name>reimbursementRequest</servlet-name>
     <servlet-class>reimbursement.RequestServlet</servlet-class>
   </servlet>
