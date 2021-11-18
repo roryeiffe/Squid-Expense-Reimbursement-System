@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 
 public class UpdateServlet extends HttpServlet {
 
@@ -12,18 +13,25 @@ public class UpdateServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        // get data from request:
-        int reimbursementId = Integer.parseInt(request.getParameter("reimbursementId"));
-        String action = request.getParameter("action");
-
         // create a dao:
         ReimbursementDao dao = new ReimbursementDao();
         dao.openCurrentSessionWithTransaction();
-        Reimbursement reimbursement = dao.getById(reimbursementId);
-        // update status, based on action chosen:
-        if (action.equals("approve")) reimbursement.setStatus("approved");
-        else reimbursement.setStatus("rejected");
-        dao.update(reimbursement);
+
+        // get map of parameters:
+        Map<String, String[]> parameters = request.getParameterMap();
+        for (Map.Entry<String,String[]> entry : parameters.entrySet()){
+            // get reimbursement id from key:
+            int reimbursementId = Integer.parseInt(entry.getKey());
+            Reimbursement reimbursement = dao.getById(reimbursementId);
+            // update status, based on action chosen:
+            String action = entry.getValue()[0];
+            if (action.equals("approve")) reimbursement.setStatus("approved");
+            else reimbursement.setStatus("rejected");
+            System.out.println(reimbursementId + " " + action);
+            // update the db:
+            dao.update(reimbursement);
+        }
+
         // commit transaction:
         dao.commitAndClose();
 

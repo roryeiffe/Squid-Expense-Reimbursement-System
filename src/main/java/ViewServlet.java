@@ -45,6 +45,8 @@ public class ViewServlet extends HttpServlet {
         }
         // manager view:
         else{
+            // create a form, this will let the manager update reimbursements:
+            out.print("<form action = '/updateReimbursement' method = 'post'>");
             // construct table
             out.print("<table border = '1'> <tr> <th>Employee</th> <th>Title</th> <th>Description</th> <th>Amount</th> <th>Status</th>");
             if(status.equals("pending")) out.print("<th>Approve</th> <th>Reject</th>");
@@ -52,8 +54,6 @@ public class ViewServlet extends HttpServlet {
             for(Reimbursement reimbursement: reimbursementList) {
                 // create a row for each reimbursement:
                 out.print("<tr>");
-                // create a form, this will let the manager update reimbursements:
-                out.print("<form action = '/updateReimbursement' method = 'post'>");
                 out.print("<td>" + reimbursement.getEmpId() + "</td>");
                 out.print("<td>" + reimbursement.getTitle() + "</td>");
                 out.print("<td>" + reimbursement.getDescription() + "</td>");
@@ -61,16 +61,16 @@ public class ViewServlet extends HttpServlet {
                 out.print("<td>" + reimbursement.getStatus() + "</td>");
                 // if this is a pending reimbursemet, print out the options to approve/reject
                 if(status.equals("pending")) {
-                    out.print("<td><input type = 'radio' name = 'action' value = 'approve' checked = 'checked'/></td>");
-                    out.print("<td><input type = 'radio' name = 'action' value = 'reject'/></td>");
-                    // hidden form field to pass in the reimbursement id:
-                    out.print("<input type = 'hidden' name = reimbursementId value = " + reimbursement.getId() + ">");
-                    out.print("<td><input type = 'submit' value = 'Update Reimbursement'/></td>");
+                    out.print("<td><input type = 'radio' name = '" +reimbursement.getId() +"' value = 'approve'/></td>");
+                    out.print("<td><input type = 'radio' name = '" +reimbursement.getId() + "' value = 'reject'/></td>");
                 }
-                out.print("</form>");
                 out.print("</tr>");
             }
+            // close out the table:
             out.print("</table");
+            // close out the form:
+            if(status.equals("pending")) out.print("<td><input type = 'submit' value = 'Update Reimbursements'/></td>");
+            out.print("</form>");
         }
 
 
