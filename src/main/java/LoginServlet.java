@@ -46,7 +46,12 @@ public class LoginServlet extends HttpServlet {
         User user = new User();
         user = loginDao.validate(email, password);
 
-        if(user.isMang() == true){
+        if (user == null){
+            RequestDispatcher dispatcher = req.getRequestDispatcher("index.html");
+            dispatcher.include(req, resp);
+            out.print("<script>alert('Login failed!','danger')</script>");
+        }
+        else if(user.isMang() == true){
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.html");
             HttpSession session = req.getSession();
             session.setAttribute("userType", "manager");
@@ -63,8 +68,6 @@ public class LoginServlet extends HttpServlet {
             out.print("<script>alert('Successfully logged in as employee!','success')</script>");
             System.out.println("Welcome "+ user.getName());
             //throw new Exception("Login not successful...");
-        } else{
-            out.print("<script>alert('Login failed!','danger')</script>");
         }
     }
 }
