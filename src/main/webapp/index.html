@@ -4,12 +4,48 @@
     <meta charset="UTF-8">
     <title>Welcome</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+    <style>
+        .list-group-item{
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        #myList:hover{
+            background-color: rgb(252, 3, 161);
+        }
+        #footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .container {
+        width: 50%;
+        margin: auto;
+      }
+      .content-item {
+          display: none;
+          position: center;
+          width: 50%;
+      }
+    </style>
+    <script>
+        function show(id_) {
+            let elements = document.getElementsByClassName("content-item")
+            for(element of elements) {
+                if (element.id == id_){
+                    element.style.display = "inline";
+                }
+                else {
+                    element.style.display = "none";
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Reimbursement System</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -36,6 +72,79 @@
         </ul>
     </div>
 </nav>
+
+<!-- Background image -->
+<div
+        class="p-5 text-center bg-image"
+        style="background-image: url('images/squid-game-piggybank.jpeg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 96vh;
+            opacity: 0.8;
+         "
+>
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+                <h1 class="mb-3">Welcome!</h1>
+                <h4 class="mb-3">Here is the reimbursement management system.</h4>
+                <a class="btn btn-outline-light btn-lg" href="#!" role="button">Login</a>
+            </div>
+        </div>
+    </div>
+<hr class="text-white">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+        <div class="text-white">
+            <div class="container row">
+                <div >
+                    <h3>About Squid Game</h3>
+                    <p>Here at Squid Game, we try to help the poor become rich! We do that by having players play child's game.
+                        Here they will compete round after round for the grand prize until there is a one winner.</p>
+                </div>
+                <div class="preview col-lg-4">
+                    <ul class="list-group"> Games being played:
+                        <li class="list-group-item text-white" id="myList" onclick="show('content1')">Ddakji</li>
+                        <li class="list-group-item text-white" id="myList" onclick="show('content2')">Red Light, Green Light</li>
+                        <li class="list-group-item text-white" id="myList" onclick="show('content3')">Dalgona/Ppopgi</li>
+                        <li class="list-group-item text-white" id="myList" onclick="show('content4')">Tug of War</li>
+                        <li class="list-group-item text-white" id="myList" onclick="show('content5')">Marbles</li>
+                        <li class="list-group-item text-white" id="myList" onclick="show('content6')">The Glass Tile Game</li>
+                        <li class="list-group-item text-white" id="myList" onclick="show('content7')">Squid Game</li>
+                    </ul>
+                </div>
+                <div class="content col-lg-8">
+                    <div id="content1" class="content-item">
+                        <img src="url('images/squid-game-piggybank.jpeg')">
+                        <p>
+                            This is the content for item 1. Lorem ipsum dolor, sit amet
+                            consectetur adipisicing elit. Unde, saepe inventore, molestias
+                            adipisci rerum impedit nemo ducimus, eum explicabo iusto tenetur
+                            ullam. Soluta magni fugit dolorem corrupti culpa voluptatibus ad?
+                        </p>
+                    </div>
+                    <div class="card content-item" style="position: center;" id="content2">
+                        <img class="card-img-top" src='images/squid-game-piggybank.jpeg' width = "200px" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Red Light, Green Light</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);" id="footer" >
+        <!-- Copyright -->
+        <div class="text-center py-3 text-white">
+            © 2021 Copyright: Rory Eiffe and AJ Alvero
+        </div>
+        <!-- Copyright -->
+    </div>
+
+</div>
+<!-- Background image -->
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
