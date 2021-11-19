@@ -38,6 +38,8 @@ public class LoginServlet extends HttpServlet {
     }
 
     private void authenticate(HttpServletRequest req, HttpServletResponse resp) throws Exception{
+        resp.setContentType("text/html");
+        PrintWriter out = resp.getWriter();
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
@@ -55,7 +57,8 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("userId",user.getId());
             dispatcher.include(req,resp);
             System.out.println("Welcome "+ user.getName() + " " + user.isMang());
-        } else{
+
+        } else if(user.isMang() == false){
             out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Successfully logged in as employee!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.html");
             HttpSession session = req.getSession();
@@ -64,6 +67,8 @@ public class LoginServlet extends HttpServlet {
             dispatcher.include(req, resp);
             System.out.println("Welcome "+ user.getName());
             //throw new Exception("Login not successful...");
+        } else{
+            out.print("alert('User or password incorrect');");
         }
     }
 }
