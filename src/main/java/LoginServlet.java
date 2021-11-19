@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class LoginServlet extends HttpServlet {
     private UserDao loginDao;
@@ -37,6 +38,8 @@ public class LoginServlet extends HttpServlet {
     }
 
     private void authenticate(HttpServletRequest req, HttpServletResponse resp) throws Exception{
+        resp.setContentType("text/html");
+        PrintWriter out = resp.getWriter();
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
@@ -50,7 +53,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("userId",user.getId());
             dispatcher.forward(req,resp);
             System.out.println("Welcome "+ user.getName() + " " + user.isMang());
-        } else{
+        } else if(user.isMang() == false){
             RequestDispatcher dispatcher = req.getRequestDispatcher("loginsuccessemployee.html");
             HttpSession session = req.getSession();
             session.setAttribute("userType", "employee");
@@ -58,6 +61,8 @@ public class LoginServlet extends HttpServlet {
             dispatcher.forward(req, resp);
             System.out.println("Welcome "+ user.getName());
             //throw new Exception("Login not successful...");
+        } else{
+            out.print("alert('User or password incorrect');");
         }
     }
 }
