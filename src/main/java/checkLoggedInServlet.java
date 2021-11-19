@@ -12,12 +12,13 @@ import java.io.PrintWriter;
  <a href = "checkLoggedIn?path=SubmitRequest">Request Reimbursement</a>
  This line of HTMl code will first check HTTP session if user is logged in then store
  that in an attribute "loggedIn" (possible values are "manager", "employee", and "none")
- Finally, it will redirect to SubmitRequest.jsp, where you will
+ Finally, it will redirect to SubmitRequest.html, where you will
  have to manually check the value of the attribute and display the appropriate response
  **/
 
 public class checkLoggedInServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        // get login status from httpsession:
         HttpSession session = request.getSession(true);
         String userType = (String)session.getAttribute("userType");
         boolean loggedIn = (userType != null);
@@ -40,23 +41,23 @@ public class checkLoggedInServlet extends HttpServlet {
         // to submit request, must be logged in as employee:
         if(path.equals("SubmitRequest")){
             if(loggedInStatus.equals("employee")){
-                request.getRequestDispatcher("SubmitRequest.jsp").forward(request, response);
+                request.getRequestDispatcher("SubmitRequest.html").forward(request, response);
             }
             else{
-                out.print("<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">Must be logged in as employee to submit request!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
-
                 request.getRequestDispatcher("index.html").include(request, response);
+                // add danger alert:
+                out.print("<script>alert('Must be logged in as employee to submit request!','danger')</script>");
             }
         }
         // must be logged in to view requests:
         else if (path.equals("View")) {
             if(!loggedInStatus.equals("none")) {
-                request.getRequestDispatcher("View.jsp").forward(request, response);
+                request.getRequestDispatcher("View.html").forward(request, response);
             }
             else {
-                out.print("<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">Must be logged in to view requests!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
-
                 request.getRequestDispatcher("index.html").include(request, response);
+                // add danger alert:
+                out.print("<script>alert('Must be logged in to view requests!','danger')</script>");
             }
         }
         

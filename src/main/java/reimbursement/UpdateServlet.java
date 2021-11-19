@@ -38,8 +38,9 @@ public class UpdateServlet extends HttpServlet {
         dao.commitAndClose();
 
         // let the user know that the update was successful:
-        out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Reimbursements updated successfully!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
         RequestDispatcher rd = request.getRequestDispatcher("index.html");
         rd.include(request, response);
+        // add success alert:
+        out.print("<script>alert('Reimbursements updated successfully!','success')</script>");
     }
 }

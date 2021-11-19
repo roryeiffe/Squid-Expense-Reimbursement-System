@@ -47,25 +47,24 @@ public class LoginServlet extends HttpServlet {
         user = loginDao.validate(email, password);
 
         if(user.isMang() == true){
-            out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Successfully logged in as manager!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.html");
             HttpSession session = req.getSession();
             session.setAttribute("userType", "manager");
             session.setAttribute("userId",user.getId());
             dispatcher.include(req,resp);
+            out.print("<script>alert('Successfully logged in as manager!','success')</script>");
             System.out.println("Welcome "+ user.getName() + " " + user.isMang());
-
         } else if(user.isMang() == false){
-            out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Successfully logged in as employee!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.html");
             HttpSession session = req.getSession();
             session.setAttribute("userType", "employee");
             session.setAttribute("userId",user.getId());
             dispatcher.include(req, resp);
+            out.print("<script>alert('Successfully logged in as employee!','success')</script>");
             System.out.println("Welcome "+ user.getName());
             //throw new Exception("Login not successful...");
         } else{
-            out.print("alert('User or password incorrect');");
+            out.print("<script>alert('Login failed!','danger')</script>");
         }
     }
 }

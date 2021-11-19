@@ -1,0 +1,19 @@
+Since we aren't using React, I've been manually copying and pasting certain
+components throughout the project. This can be tedious especially when I change them very often.
+To ease this process, I am creating a list of the locations of all reused components, so I know
+exactly where to update them when the need arises. ~ Rory
+
+Navbar:
+    index.html
+    login.html
+    displayRequests.jsp
+    View.jsp
+    SubmitRequest.jsp
+Loading Icon:
+    login.html
+    View.html
+    SubmitRequest.jsp
+Alerts:
+    LoginServlet
+    LogoutServlet
+    checkLoggedInServlet

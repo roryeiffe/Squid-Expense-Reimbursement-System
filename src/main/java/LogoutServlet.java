@@ -13,16 +13,15 @@ public class LogoutServlet extends HttpServlet {
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
 
-        // req.getRequestDispatcher("index.html").include(req, resp);
-
+        // invalidate session:
         HttpSession session = req.getSession();
-
         session.invalidate();
 
-        out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Successfully logged out!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
-
+        // redirect to home page and say logout successful:
         RequestDispatcher dispatcher = req.getRequestDispatcher("index.html");
         dispatcher.include(req,resp);
+        // add success alert:
+        out.print("<script>alert('Logout successful!','success')</script>");
         out.close();
     }
 }
