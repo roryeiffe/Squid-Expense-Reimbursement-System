@@ -1,3 +1,8 @@
+<%
+    // get data from request:
+    String loggedIn = "employee";
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,22 +33,28 @@
 <body>
 
     <div class = "container">
-        <div id = "alert">
 
+        <% if (!loggedIn.equals("employee")) { %>
+            <p>You must be logged in as an employee to make a request!</p>
+        <% } else { %>
+
+            <div id = "alert">
+
+            </div>
+
+            <h1 class = "h1">
+                Request Reimbursement
+            </h1>
+
+            <form action = "request" method = "post" >
+                <input class = "form-control" type = "text" name = "title" placeholder="Enter title" required> </br>
+                <textarea class = "form-control" name = "description" placeholder="Enter Description" required></textarea></br>
+                <input class = "form-control" type = "number" name = "amount" placeholder="Enter amount" required/></br>
+                <input class = "btn btn-primary" id = "submit" type = "submit" value = "Request" onclick="loading()"/>
+                <p id = "load"></p>
+            </form>
         </div>
-        <h1 class = "h1">
-            Request Reimbursement
-        </h1>
-
-        <form action = "request" method = "post" >
-            <input class = "form-control" type = "text" name = "title" placeholder="Enter title" required> </br>
-            <textarea class = "form-control" name = "description" placeholder="Enter Description" required></textarea></br>
-            <input class = "form-control" type = "number" name = "amount" placeholder="Enter amount" required/></br>
-            <input class = "btn btn-primary" id = "submit" type = "submit" value = "Request" onclick="loading()"/>
-            <p id = "load"></p>
-        </form>
-    </div>
-
+        <%}%>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
@@ -53,7 +64,6 @@
             document.getElementById("load").innerHTML = "loading...";
         }
     </script>
-
 
 </body>
 </html>

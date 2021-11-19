@@ -19,7 +19,6 @@ public class ViewServlet extends HttpServlet {
 
         // get status from submitted form:
         String status = request.getParameter("status");
-        // TODO get employee id from httpsession
         // TODO Also make sure user is logged in
         HttpSession session = request.getSession(false);
         String userType = (String)session.getAttribute("userType");

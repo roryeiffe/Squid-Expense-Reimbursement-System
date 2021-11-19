@@ -98,7 +98,7 @@ public class ReimbursementDao {
         // default to show all statuses:
         hql += "WHERE R.status LIKE '%' ";
         // get approved/rejected reimbursements:
-        if (status.equals("past")) hql += "AND R.status = 'approved' OR R.status = 'rejected'";
+        if (status.equals("past")) hql += "AND (R.status = 'approved' OR R.status = 'rejected') ";
         else if (status.equals("pending")) hql += "AND R.status = 'pending'";
         // unless we are a manager, only show reimbursements for the given employee:
         if(empId != -1) {

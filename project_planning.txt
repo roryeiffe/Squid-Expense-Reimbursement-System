@@ -78,5 +78,5 @@ Register?
 <input> type manager or employee
 
 TODO:
-AJ: Add functionality to differentiate between employee and manager
-Rory: Update approve/reject form to have on "update" button
+AJ: Give error message if user types in wrong password
+Rory: Fix alert so they appear below navbar

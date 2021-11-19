@@ -6,11 +6,9 @@
   <display-name>Archetype Created Web Application</display-name>
 
   <servlet>
-
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>LoginServlet</servlet-class>
   </servlet>
-
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
@@ -20,30 +18,45 @@
     <servlet-name>reimbursementRequest</servlet-name>
     <servlet-class>reimbursement.RequestServlet</servlet-class>
   </servlet>
-
-  <servlet>
-    <servlet-name>viewRequest</servlet-name>
-    <servlet-class>reimbursement.ViewServlet</servlet-class>
-  </servlet>
-
-  <servlet>
-    <servlet-name>updateReimbursement</servlet-name>
-    <servlet-class>reimbursement.UpdateServlet</servlet-class>
-  </servlet>
-  
   <servlet-mapping>
     <servlet-name>reimbursementRequest</servlet-name>
     <url-pattern>/request</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>viewRequest</servlet-name>
+    <servlet-class>reimbursement.ViewServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>viewRequest</servlet-name>
     <url-pattern>/viewRequest</url-pattern>
   </servlet-mapping>
-  
+
+  <servlet>
+    <servlet-name>updateReimbursement</servlet-name>
+    <servlet-class>reimbursement.UpdateServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>updateReimbursement</servlet-name>
     <url-pattern>/updateReimbursement</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>checkLoggedIn</servlet-name>
+    <servlet-class>checkLoggedInServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>checkLoggedIn</servlet-name>
+    <url-pattern>/checkLoggedIn</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/logout</url-pattern>
   </servlet-mapping>
 
 

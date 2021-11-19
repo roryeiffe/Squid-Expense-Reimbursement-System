@@ -22,7 +22,6 @@ public class RequestServlet extends HttpServlet {
 
         // default to pending
         String status = "pending";
-        // TODO: Get employee id from session/cookie/wherever it is stored:
         HttpSession session = request.getSession(false);
         String userType = (String)session.getAttribute("userType");
         int empId = (Integer) session.getAttribute("userId");
@@ -41,8 +40,8 @@ public class RequestServlet extends HttpServlet {
         dao.commitAndClose();
 
         // TODO check for success/failure
-        out.print("<div class=\"alert alert-success\" alert-dismissible\" role=\"alert\"> Your request was submitted successfully! <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
-        RequestDispatcher rd = request.getRequestDispatcher("/Request.html");
+        out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Request submitted successfully!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
+        RequestDispatcher rd = request.getRequestDispatcher("/index.html");
         rd.include(request,response);
     }
 }
