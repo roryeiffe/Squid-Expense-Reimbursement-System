@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class LoginServlet extends HttpServlet {
     private UserDao loginDao;
@@ -43,19 +44,24 @@ public class LoginServlet extends HttpServlet {
         User user = new User();
         user = loginDao.validate(email, password);
 
+        resp.setContentType("text/html");
+        PrintWriter out = resp.getWriter();
+
         if(user.isMang() == true){
-            RequestDispatcher dispatcher = req.getRequestDispatcher("loginsuccessmanager.html");
+            out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Successfully logged in as manager!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("index.html");
             HttpSession session = req.getSession();
             session.setAttribute("userType", "manager");
             session.setAttribute("userId",user.getId());
-            dispatcher.forward(req,resp);
+            dispatcher.include(req,resp);
             System.out.println("Welcome "+ user.getName() + " " + user.isMang());
         } else{
-            RequestDispatcher dispatcher = req.getRequestDispatcher("loginsuccessemployee.html");
+            out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Successfully logged in as employee!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("index.html");
             HttpSession session = req.getSession();
             session.setAttribute("userType", "employee");
             session.setAttribute("userId",user.getId());
-            dispatcher.forward(req, resp);
+            dispatcher.include(req, resp);
             System.out.println("Welcome "+ user.getName());
             //throw new Exception("Login not successful...");
         }
