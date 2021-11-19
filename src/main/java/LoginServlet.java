@@ -46,9 +46,6 @@ public class LoginServlet extends HttpServlet {
         User user = new User();
         user = loginDao.validate(email, password);
 
-        resp.setContentType("text/html");
-        PrintWriter out = resp.getWriter();
-
         if(user.isMang() == true){
             out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Successfully logged in as manager!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.html");
