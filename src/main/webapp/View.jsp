@@ -37,29 +37,32 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link"  href = "/">Home</a>
-                </li >
-                <li class="nav-item active">
-                    <a  class="nav-link" href = "checkLoggedIn?path=SubmitRequest">Request Reimbursement</a>
-                </li>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link"  href = "/">Home</a>
+                    </li >
+                    <li class="nav-item active">
+                        <a  class="nav-link" href = "checkLoggedIn?path=SubmitRequest">Request Reimbursement</a>
+                    </li>
 
-                <li class="nav-item active">
-                    <a class="nav-link"  href = "checkLoggedIn?path=View">View Requests</a>
-                </li>
+                    <li class="nav-item active">
+                        <a class="nav-link"  href = "checkLoggedIn?path=View">View Requests</a>
+                    </li>
 
-                <li class="nav-item active">
-                    <a  class="nav-link" href = "login">Login</a>
-                </li>
+                    <li class="nav-item active">
+                        <a  class="nav-link" href = "login">Login</a>
+                    </li>
 
-                <li class="nav-item active">
-                    <a  class="nav-link" href="logout">Logout</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+                    <li class="nav-item active">
+                        <a  class="nav-link" href="logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
     <% if (loggedIn.equals("none")) { %>
         <p>You must be logged in to view/manage requests!</p>
@@ -86,7 +89,7 @@
     <script>
         function loading() {
             document.getElementById("submit").style.display = "none";
-            document.getElementById("load").innerHTML = "loading...";
+            document.getElementById("load").innerHTML = "loading... <img src = 'resources/load.gif' width = '20px'/>";
         }
     </script>
 

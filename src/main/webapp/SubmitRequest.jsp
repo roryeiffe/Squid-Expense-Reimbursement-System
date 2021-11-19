@@ -33,7 +33,10 @@
 <body>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="collapse navbar-collapse" id="navbarNav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
                         <a class="nav-link"  href = "/">Home</a>
@@ -78,8 +81,8 @@
                 <input class = "form-control" type = "text" name = "title" placeholder="Enter title" required> </br>
                 <textarea class = "form-control" name = "description" placeholder="Enter Description" required></textarea></br>
                 <input class = "form-control" type = "number" name = "amount" placeholder="Enter amount" required/></br>
-                <input class = "btn btn-primary" id = "submit" type = "submit" value = "Request" onclick="loading()"/>
-                <p id = "load"></p>
+                <input id = "submit" class = "btn btn-primary" id = "submit" type = "submit" value = "Request" onclick="loading()"/>
+                <div id = "load"></div>
             </form>
         </div>
         <%}%>
@@ -91,7 +94,7 @@
     <script>
         function loading() {
             document.getElementById("submit").style.display = "none";
-            document.getElementById("load").innerHTML = "loading...";
+            document.getElementById("load").innerHTML = "loading...<img src = 'resources/load.gif' width = '20px'/>";
         }
     </script>
 
