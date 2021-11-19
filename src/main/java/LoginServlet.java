@@ -48,20 +48,20 @@ public class LoginServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
 
         if(user.isMang() == true){
-            out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Successfully logged in as manager!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.html");
             HttpSession session = req.getSession();
             session.setAttribute("userType", "manager");
             session.setAttribute("userId",user.getId());
             dispatcher.include(req,resp);
+            out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Successfully logged in as manager!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
             System.out.println("Welcome "+ user.getName() + " " + user.isMang());
         } else{
-            out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Successfully logged in as employee!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.html");
             HttpSession session = req.getSession();
             session.setAttribute("userType", "employee");
             session.setAttribute("userId",user.getId());
             dispatcher.include(req, resp);
+            out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Successfully logged in as employee!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
             System.out.println("Welcome "+ user.getName());
             //throw new Exception("Login not successful...");
         }

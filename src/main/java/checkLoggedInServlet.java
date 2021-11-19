@@ -43,9 +43,9 @@ public class checkLoggedInServlet extends HttpServlet {
                 request.getRequestDispatcher("SubmitRequest.jsp").forward(request, response);
             }
             else{
+                request.getRequestDispatcher("index.html").include(request, response);
                 out.print("<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">Must be logged in as employee to submit request!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
 
-                request.getRequestDispatcher("index.html").include(request, response);
             }
         }
         // must be logged in to view requests:
@@ -54,9 +54,8 @@ public class checkLoggedInServlet extends HttpServlet {
                 request.getRequestDispatcher("View.jsp").forward(request, response);
             }
             else {
-                out.print("<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">Must be logged in to view requests!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
-
                 request.getRequestDispatcher("index.html").include(request, response);
+                out.print("<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">Must be logged in to view requests!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
             }
         }
         

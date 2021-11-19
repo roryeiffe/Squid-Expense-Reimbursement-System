@@ -19,10 +19,10 @@ public class LogoutServlet extends HttpServlet {
 
         session.invalidate();
 
-        out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Successfully logged out!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("index.html");
         dispatcher.include(req,resp);
+        out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Successfully logged out!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
         out.close();
     }
 }
