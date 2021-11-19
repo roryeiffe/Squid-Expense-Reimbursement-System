@@ -78,5 +78,5 @@ Register?
 <input> type manager or employee
 
 TODO:
-AJ: Make navbar look like a navbar and put it on all pages
-Rory: fix button glitch
+AJ: Make navbar look like a navbar and put it on all pages. Make homepage look nice
+Rory: Make the reimbursement view page look pretty (View.jsp), handle wrong password alerts
