@@ -16,18 +16,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
     <title>View Requests</title>
 
     <style>
+    .container {
+        padding-bottom: 10px;
+    }
         .container {
             margin-top: 50px;
             width: 75%;
             box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
         }
         .btn {
-            float: right;
+            display: block;
+            margin: auto;
             margin-top: 10px;
+            margin-bottom: 10px;
         }
         input[type = "radio"] {
             cursor: pointer;
@@ -36,9 +40,6 @@
         }
         tbody tr:hover {
             background: #c4fbff;
-        }
-        #load {
-            float: right;
         }
     </style>
 </head>
@@ -112,6 +113,7 @@
                     </tr>
                     <%}%>
                 </tbody>
+
             </table>
 
         <%if(type.equals("manager") && status.equals("pending")){%>
@@ -119,7 +121,10 @@
             <div id = "load">
             </div>
         <%}%>
+
+
         </form>
+
     <div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -127,7 +132,7 @@
     <script>
         function loading() {
             document.getElementById("submit").style.display = "none";
-            document.getElementById("load").innerHTML = "loading...<img src = 'resources/load.gif' width = '20px'/>";
+            document.getElementById("load").innerHTML = "<img src = 'resources/load.gif' style = 'display: block; width: 40px; margin: auto; margin-top: 10px'/>";
         }
     </script>
 

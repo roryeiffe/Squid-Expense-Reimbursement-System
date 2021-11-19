@@ -12,7 +12,7 @@ Navbar:
 Loading Icon:
     login.html
     View.html
-    SubmitRequest.html
+    SubmitRequest.jsp
 Alerts:
     LoginServlet
     LogoutServlet

@@ -1,8 +1,3 @@
-<%
-    // get data from request:
-    String loggedIn = "employee";
-%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,18 +55,6 @@
             </nav>
 
     <div class = "container">
-
-
-
-
-        <% if (!loggedIn.equals("employee")) { %>
-            <p>You must be logged in as an employee to make a request!</p>
-        <% } else { %>
-
-            <div id = "alert">
-
-            </div>
-
             <h1 class = "h1">
                 Request Reimbursement
             </h1>
@@ -84,12 +67,11 @@
                 <div id = "load"></div>
             </form>
         </div>
-        <%}%>
 
     <script>
         function loading() {
             document.getElementById("submit").style.display = "none";
-            document.getElementById("load").innerHTML = "loading...<img src = 'resources/load.gif' width = '20px'/>";
+            document.getElementById("load").innerHTML = "<img src = 'resources/load.gif' style = 'display: block; width: 40px; margin: auto; margin-top: 10px'/>";
         }
     </script>
 

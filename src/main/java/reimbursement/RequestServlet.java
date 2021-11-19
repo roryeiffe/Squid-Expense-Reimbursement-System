@@ -41,8 +41,8 @@ public class RequestServlet extends HttpServlet {
 
         // TODO check for success/failure
         RequestDispatcher rd = request.getRequestDispatcher("/index.html");
-        out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Request submitted successfully!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
-
         rd.include(request,response);
+        // add success alert:
+        out.print("<script>alert('Request submitted successfully!','success')</script>");
     }
 }

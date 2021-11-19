@@ -40,7 +40,7 @@ public class UpdateServlet extends HttpServlet {
         // let the user know that the update was successful:
         RequestDispatcher rd = request.getRequestDispatcher("index.html");
         rd.include(request, response);
-        out.print("<div class=\"alert alert-success alert-dismissible\" role=\"alert\">Reimbursements updated successfully!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
-
+        // add success alert:
+        out.print("<script>alert('Reimbursements updated successfully!','success')</script>");
     }
 }
