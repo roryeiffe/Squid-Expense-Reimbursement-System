@@ -1,6 +1,6 @@
 <%
     // get data from request:
-    String loggedIn = (String) request.getAttribute("loggedIn");
+    String loggedIn = "employee";
 %>
 
 <!DOCTYPE html>

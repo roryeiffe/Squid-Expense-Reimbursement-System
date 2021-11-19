@@ -22,16 +22,43 @@ public class checkLoggedInServlet extends HttpServlet {
         String userType = (String)session.getAttribute("userType");
         boolean loggedIn = (userType != null);
 
+        String loggedInStatus;
+
         // set attribute of log in status:
         if(loggedIn) {
-            request.setAttribute("loggedIn", userType);
+            loggedInStatus = userType;
         }
         else{
-            request.setAttribute("loggedIn", "none");
+            loggedInStatus = "none";
         }
 
-        // forward to correct page:
-        request.getRequestDispatcher(request.getParameter("path") + ".jsp").forward(request, response);
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        // check where the user is trying to access:
+        String path = request.getParameter("path");
+        // to submit request, must be logged in as employee:
+        if(path.equals("SubmitRequest")){
+            if(loggedInStatus.equals("employee")){
+                request.getRequestDispatcher("SubmitRequest.jsp").forward(request, response);
+            }
+            else{
+                out.print("<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">Must be logged in as employee to submit request!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
+
+                request.getRequestDispatcher("index.html").include(request, response);
+            }
+        }
+        // must be logged in to view requests:
+        else if (path.equals("View")) {
+            if(!loggedInStatus.equals("none")) {
+                request.getRequestDispatcher("View.jsp").forward(request, response);
+            }
+            else {
+                out.print("<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">Must be logged in to view requests!<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
+
+                request.getRequestDispatcher("index.html").include(request, response);
+            }
+        }
         
     }
 
