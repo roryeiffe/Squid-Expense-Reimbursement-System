@@ -78,5 +78,5 @@ Register?
 <input> type manager or employee
 
 TODO:
-AJ: Make navbar look like a navbar and put it on all pages
-Rory: fix button glitch
+AJ: Give error message if user types in wrong password
+Rory: Fix alert so they appear below navbar
