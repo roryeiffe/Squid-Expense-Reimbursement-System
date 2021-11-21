@@ -1,5 +1,7 @@
 package reimbursement;
 
+import Factory.DaoFactory;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +18,7 @@ public class UpdateServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         // create a dao:
-        ReimbursementDao dao = new ReimbursementDao();
+        ReimbursementDao dao = DaoFactory.getReimbursementDao();
         dao.openCurrentSessionWithTransaction();
 
         // get map of parameters:

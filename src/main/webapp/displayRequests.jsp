@@ -22,11 +22,12 @@
     .container {
         padding-bottom: 10px;
     }
+
         .container {
-            margin-top: 50px;
-            width: 75%;
-            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+            background-color:rgba(255, 255, 255, 0.85);
+            padding: 30px;
         }
+
         .btn {
             display: block;
             margin: auto;
@@ -72,60 +73,72 @@
             </div>
         </nav>
 
-    <div class = "container">
-        <form action = '/updateReimbursement' method = 'post'>
-            <table class = "table table-striped table-hover" >
-                <thead>
-                    <tr>
-                        <% if (type.equals("manager")) { %>
-                            <th>Employee Id:</th>
-                        <% } %>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Amount</th>
-                        <th>Status</th>
-                        <% if (type.equals("manager") && status.equals("pending")) { %>
-                            <th>Approve</th>
-                            <th>Reject</th>
-                        <% } %>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%for(Reimbursement reimbursement: reimbursements) {
-                        if(type.equals("manager")) {
-                    %>
-                    <tr> <td> <%= reimbursement.getEmpId() %> </td>
-                    <%} else{ %>
+    <div
+            class="p-5 text-center bg-image"
+            style="background-image: url('images/squid-game-piggybank.jpeg');
+                background-position: center;
+                background-size: cover;
+                height: 96vh;
+                opacity: 0.8;
+                background-repeat: repeat-y;
+             "
+    >
+
+        <div class = "container">
+            <form action = '/updateReimbursement' method = 'post'>
+                <table class = "table table-striped table-hover" >
+                    <thead>
                         <tr>
-                    <%}%>
+                            <% if (type.equals("manager")) { %>
+                                <th>Employee Id:</th>
+                            <% } %>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <% if (type.equals("manager") && status.equals("pending")) { %>
+                                <th>Approve</th>
+                                <th>Reject</th>
+                            <% } %>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%for(Reimbursement reimbursement: reimbursements) {
+                            if(type.equals("manager")) {
+                        %>
+                        <tr> <td> <%= reimbursement.getEmpId() %> </td>
+                        <%} else{ %>
+                            <tr>
+                        <%}%>
 
-                    <td> <%= reimbursement.getTitle() %> </td>
-                    <td> <%= reimbursement.getDescription() %> </td>
-                    <td> <%= reimbursement.getAmount() %> </td>
-                    <td> <%= reimbursement.getStatus() %> </td>
+                        <td> <%= reimbursement.getTitle() %> </td>
+                        <td> <%= reimbursement.getDescription() %> </td>
+                        <td> <%= reimbursement.getAmount() %> </td>
+                        <td> <%= reimbursement.getStatus() %> </td>
 
 
-                    <% if (type.equals("manager") && status.equals("pending")) { %>
-                        <td><input type = 'radio' name = <%= reimbursement.getId() %>  value = 'approve'/></td>
-                        <td><input type = 'radio' name = <%= reimbursement.getId() %>  value = 'reject'/></td>
-                    <% } %>
+                        <% if (type.equals("manager") && status.equals("pending")) { %>
+                            <td><input type = 'radio' name = <%= reimbursement.getId() %>  value = 'approve'/></td>
+                            <td><input type = 'radio' name = <%= reimbursement.getId() %>  value = 'reject'/></td>
+                        <% } %>
 
-                    </tr>
-                    <%}%>
-                </tbody>
+                        </tr>
+                        <%}%>
+                    </tbody>
 
-            </table>
+                </table>
 
-        <%if(type.equals("manager") && status.equals("pending")){%>
-            <input id = "submit" class = "btn btn-primary" type = 'submit' value = 'Update Reimbursements' onClick = "loading()"/>
-            <div id = "load">
-            </div>
-        <%}%>
+            <%if(type.equals("manager") && status.equals("pending")){%>
+                <input id = "submit" class = "btn btn-primary" type = 'submit' value = 'Update Reimbursements' onClick = "loading()"/>
+                <div id = "load">
+                </div>
+            <%}%>
 
 
-        </form>
+            </form>
 
-    <div>
+        <div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 

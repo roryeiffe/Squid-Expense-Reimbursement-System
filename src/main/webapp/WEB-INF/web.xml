@@ -6,11 +6,11 @@
   <display-name>Archetype Created Web Application</display-name>
 
   <servlet>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>LoginServlet</servlet-class>
+    <servlet-name>User.LoginServlet</servlet-name>
+    <servlet-class>User.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
+    <servlet-name>User.LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
 
@@ -43,7 +43,7 @@
 
   <servlet>
     <servlet-name>checkLoggedIn</servlet-name>
-    <servlet-class>checkLoggedInServlet</servlet-class>
+    <servlet-class>User.checkLoggedInServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>checkLoggedIn</servlet-name>
@@ -52,7 +52,7 @@
 
   <servlet>
     <servlet-name>Logout</servlet-name>
-    <servlet-class>LogoutServlet</servlet-class>
+    <servlet-class>User.LogoutServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Logout</servlet-name>

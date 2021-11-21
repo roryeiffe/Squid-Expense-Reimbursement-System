@@ -1,5 +1,7 @@
 package reimbursement;
 
+import Factory.DaoFactory;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +28,7 @@ public class ViewServlet extends HttpServlet {
         if(userType.equals("manager")) userId = -1;
 
         // create a dao:
-        ReimbursementDao dao = new ReimbursementDao();
+        ReimbursementDao dao = DaoFactory.getReimbursementDao();
         dao.openCurrentSessionWithTransaction();
 
         // get list of reimbursements:
