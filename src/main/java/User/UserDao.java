@@ -1,3 +1,5 @@
+package User;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -85,7 +87,7 @@ public class UserDao{
             //start a transaction
             transaction = session.beginTransaction();
             //get user object
-            user = (User) session.createQuery("FROM User u WHERE u.email LIKE :useremail").setParameter("useremail", email).getSingleResult();
+            user = (User) session.createQuery("FROM User.User u WHERE u.email LIKE :useremail").setParameter("useremail", email).getSingleResult();
 
             if (user != null && user.getPassword().equals(password)){
                 return user;

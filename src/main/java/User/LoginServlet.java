@@ -1,9 +1,7 @@
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+package User;
 
-import javax.persistence.Query;
+import Factory.DaoFactory;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +15,7 @@ public class LoginServlet extends HttpServlet {
     private UserDao loginDao;
 
     public void init(){
-        loginDao = new UserDao();
+        loginDao = DaoFactory.getUserDao();
     }
 
     @Override

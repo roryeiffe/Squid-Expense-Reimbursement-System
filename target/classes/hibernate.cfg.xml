@@ -12,7 +12,7 @@
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <property name="hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
-        <mapping class="User" />
+        <mapping class="User.User" />
         <mapping class="reimbursement.Reimbursement" />
     </session-factory>
 </hibernate-configuration>

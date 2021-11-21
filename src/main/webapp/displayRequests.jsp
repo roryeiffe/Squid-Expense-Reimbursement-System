@@ -27,7 +27,7 @@
             background-color:rgba(255, 255, 255, 0.85);
             padding: 30px;
         }
-        
+
         .btn {
             display: block;
             margin: auto;
@@ -76,11 +76,11 @@
     <div
             class="p-5 text-center bg-image"
             style="background-image: url('images/squid-game-piggybank.jpeg');
-                background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
                 height: 96vh;
                 opacity: 0.8;
+                background-repeat: repeat-y;
              "
     >
 

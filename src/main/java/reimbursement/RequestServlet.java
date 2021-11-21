@@ -1,5 +1,7 @@
 package reimbursement;
 
+import Factory.DaoFactory;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -32,8 +34,7 @@ public class RequestServlet extends HttpServlet {
 
         // create a reimbursement object:
         Reimbursement reimbursement = new Reimbursement(empId, title, description, amount, status);
-        // create a dao TODO create a dao factory class:
-        ReimbursementDao dao = new ReimbursementDao();
+        ReimbursementDao dao = DaoFactory.getReimbursementDao();
         dao.openCurrentSessionWithTransaction();
         // insert reimbursement and commit transaction:
         dao.insert(reimbursement);
