@@ -8,9 +8,12 @@
     <style>
 
         form {
-            margin-top: 20px;
-            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
-            padding: 10px;
+            width: 75%;
+            margin: auto;
+        }
+        .container {
+            background-color:rgba(255, 255, 255, 0.85);
+            padding: 30px;
         }
 
         .form-select {
@@ -59,18 +62,30 @@
         </div>
     </nav>
 
-    <div class = "container">
-        <form action = "/viewRequest" method = "get" id = "viewRequest">
-            <p class = "p">Please choose which reimbursement requests you would like to view:</p>
-            <select class = "form-select" name="status">
-                <option value="pending">Pending</option>
-                <option value="past">Past</option>
-                <option value="all">All</option>
-            </select>
-            <input class = "btn btn-primary" id = "submit" type = "submit" value = "View" onclick = "loading()"/>
-            <p id = "load"></p>
-        </form>
-    <div>
+    <div
+            class="p-5 text-center bg-image"
+            style="background-image: url('images/squid-game-piggybank.jpeg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                height: 96vh;
+                opacity: 0.8;
+             "
+    >
+
+        <div class = "container">
+            <form action = "/viewRequest" method = "get" id = "viewRequest">
+                <p class = "p">Please choose which reimbursement requests you would like to view:</p>
+                <select class = "form-select" name="status">
+                    <option value="pending">Pending</option>
+                    <option value="past">Past</option>
+                    <option value="all">All</option>
+                </select>
+                <input class = "btn btn-primary" id = "submit" type = "submit" value = "View" onclick = "loading()"/>
+                <p id = "load"></p>
+            </form>
+        <div>
+    </div>
 
     <script>
         function loading() {

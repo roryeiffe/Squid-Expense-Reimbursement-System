@@ -13,8 +13,6 @@
         form {
             width: 75%;
             margin: auto;
-            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
-            padding: 10px;
         }
 
         .btn {
@@ -23,49 +21,67 @@
             font-size: 20px;
         }
 
+
+        .container {
+            background-color:rgba(255, 255, 255, 0.85);
+            padding: 30px;
+        }
+
     </style>
 </head>
 <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="/index.html">Squid Game</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item active">
-                                    <a  class="nav-link" href = "checkLoggedIn?path=SubmitRequest">Request Reimbursement</a>
-                                </li>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/index.html">Squid Game</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item active">
+                                <a  class="nav-link" href = "checkLoggedIn?path=SubmitRequest">Request Reimbursement</a>
+                            </li>
 
-                                <li class="nav-item active">
-                                    <a class="nav-link"  href = "checkLoggedIn?path=View">View Requests</a>
-                                </li>
+                            <li class="nav-item active">
+                                <a class="nav-link"  href = "checkLoggedIn?path=View">View Requests</a>
+                            </li>
 
-                                <li class="nav-item active">
-                                    <a  class="nav-link" href = "login">Login</a>
-                                </li>
+                            <li class="nav-item active">
+                                <a  class="nav-link" href = "login">Login</a>
+                            </li>
 
-                                <li class="nav-item active">
-                                    <a  class="nav-link" href="logout">Logout</a>
-                                </li>
-                        </ul>
-                    </div>
+                            <li class="nav-item active">
+                                <a  class="nav-link" href="logout">Logout</a>
+                            </li>
+                    </ul>
                 </div>
-            </nav>
+            </div>
+        </nav>
 
-    <div class = "container">
-            <h1 class = "h1">
-                Request Reimbursement
-            </h1>
+        <div
+                class="p-5 text-center bg-image"
+                style="background-image: url('images/squid-game-piggybank.jpeg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                height: 96vh;
+                opacity: 0.8;
+             "
+        >
 
-            <form action = "request" method = "post" >
-                <input class = "form-control" type = "text" name = "title" placeholder="Enter title" required> </br>
-                <textarea class = "form-control" name = "description" placeholder="Enter Description" required></textarea></br>
-                <input class = "form-control" type = "number" name = "amount" placeholder="Enter amount" required/></br>
-                <input id = "submit" class = "btn btn-primary" id = "submit" type = "submit" value = "Request" onclick="loading()"/>
-                <div id = "load"></div>
-            </form>
+            <div class = "container">
+                <h1 class = "h1">
+                    Request Reimbursement
+                </h1>
+
+                <form action = "request" method = "post" >
+                    <input class = "form-control" type = "text" name = "title" placeholder="Enter title" required> </br>
+                    <textarea class = "form-control" name = "description" placeholder="Enter Description" required></textarea></br>
+                    <input class = "form-control" type = "number" name = "amount" placeholder="Enter amount" required/></br>
+                    <input id = "submit" class = "btn btn-primary" id = "submit" type = "submit" value = "Request" onclick="loading()"/>
+                    <div id = "load"></div>
+                </form>
+            </div>
         </div>
 
     <script>
