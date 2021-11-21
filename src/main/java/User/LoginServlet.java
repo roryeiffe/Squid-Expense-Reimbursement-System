@@ -41,8 +41,7 @@ public class LoginServlet extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
-        User user = new User();
-        user = loginDao.validate(email, password);
+        User user = loginDao.validate(email, password);
 
         if (user == null){
             RequestDispatcher dispatcher = req.getRequestDispatcher("index.html");
