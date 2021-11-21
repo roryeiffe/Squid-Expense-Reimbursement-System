@@ -78,5 +78,5 @@ Register?
 <input> type manager or employee
 
 TODO:
-AJ: Give error message if user types in wrong password
-Rory: Fix alert so they appear below navbar
+AJ: Finish up home page, add cards for the different games
+Rory: Update backgrounds, test alerts and loadings
