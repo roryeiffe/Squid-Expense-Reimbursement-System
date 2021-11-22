@@ -38,6 +38,8 @@ public class checkLoggedInServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
+        System.out.println(loggedInStatus);
+
         // check where the user is trying to access:
         String path = request.getParameter("path");
         // to submit request, must be logged in as employee:

@@ -1,9 +1,6 @@
 package User;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -11,6 +8,7 @@ public class User {
     @GeneratedValue
     private int id;
     private String name;
+    @Column(unique = true)
     private String email;
     private String password;
     private boolean isMang;

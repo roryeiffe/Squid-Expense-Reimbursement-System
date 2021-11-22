@@ -42,6 +42,9 @@
         tbody tr:hover {
             background: #c4fbff;
         }
+        .input-group {
+            width: 400px;
+        }
     </style>
 </head>
 <body>
@@ -85,13 +88,18 @@
     >
 
         <div class = "container">
+            <% if (type.equals("manager")) { %>
+                <form action = "/viewRequest">
+                  <input class="form-control rounded" placeholder="Search for Employee Id" name = "empId" />
+                  <input type = "hidden" name = "status" value = <%= status %>/>
+                  <input type="submit" class="btn btn-outline-primary" value = "Search"></input>
+                </form>
+            <%}%>
             <form action = '/updateReimbursement' method = 'post'>
                 <table class = "table table-striped table-hover" >
                     <thead>
                         <tr>
-                            <% if (type.equals("manager")) { %>
-                                <th>Employee Id:</th>
-                            <% } %>
+                            <th>Employee Id:</th>
                             <th>Title</th>
                             <th>Description</th>
                             <th>Amount</th>
@@ -103,18 +111,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <%for(Reimbursement reimbursement: reimbursements) {
-                            if(type.equals("manager")) {
-                        %>
-                        <tr> <td> <%= reimbursement.getEmpId() %> </td>
-                        <%} else{ %>
-                            <tr>
-                        <%}%>
-
-                        <td> <%= reimbursement.getTitle() %> </td>
-                        <td> <%= reimbursement.getDescription() %> </td>
-                        <td> <%= reimbursement.getAmount() %> </td>
-                        <td> <%= reimbursement.getStatus() %> </td>
+                        <%for(Reimbursement reimbursement: reimbursements) {%>
+                        <tr>
+                            <td> <%= reimbursement.getEmpId() %> </td>
+                            <td> <%= reimbursement.getTitle() %> </td>
+                            <td> <%= reimbursement.getDescription() %> </td>
+                            <td> <%= reimbursement.getAmount() %> </td>
+                            <td> <%= reimbursement.getStatus() %> </td>
 
 
                         <% if (type.equals("manager") && status.equals("pending")) { %>
