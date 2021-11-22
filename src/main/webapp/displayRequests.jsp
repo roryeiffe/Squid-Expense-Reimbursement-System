@@ -91,15 +91,18 @@
             <% if (type.equals("manager")) { %>
                 <form action = "/viewRequest">
                   <input class="form-control rounded" placeholder="Search for Employee Id" name = "empId" />
-                  <input type = "hidden" name = "status" value = <%= status %>/>
+                  <input type = "hidden" name = "status" value = <%= status %>>
                   <input type="submit" class="btn btn-outline-primary" value = "Search"></input>
                 </form>
             <%}%>
+
             <form action = '/updateReimbursement' method = 'post'>
                 <table class = "table table-striped table-hover" >
                     <thead>
                         <tr>
+                            <% if (status.equals("manager")) {%>
                             <th>Employee Id:</th>
+                            <% } %>
                             <th>Title</th>
                             <th>Description</th>
                             <th>Amount</th>
@@ -113,7 +116,9 @@
                     <tbody>
                         <%for(Reimbursement reimbursement: reimbursements) {%>
                         <tr>
+                            <% if (status.equals("manager")) {%>
                             <td> <%= reimbursement.getEmpId() %> </td>
+                            <% } %>
                             <td> <%= reimbursement.getTitle() %> </td>
                             <td> <%= reimbursement.getDescription() %> </td>
                             <td> <%= reimbursement.getAmount() %> </td>

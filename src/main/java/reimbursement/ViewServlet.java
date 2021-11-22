@@ -43,7 +43,7 @@ public class ViewServlet extends HttpServlet {
         // forward this request to jsp file:
         request.setAttribute("posts", reimbursementList);
         request.setAttribute("status", status);
-        if(userId == -1) request.setAttribute("type", "manager");
+        if(userId == -1 || empId != null) request.setAttribute("type", "manager");
         else request.setAttribute("type","employee");
         request.getRequestDispatcher("displayRequests.jsp").forward(request, response);
     }
