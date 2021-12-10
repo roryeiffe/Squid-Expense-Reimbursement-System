@@ -32,4 +32,4 @@ Once in, select the different tabs.
 To gain access to the database, make sure you create your own in your MySQL database and make changes with your username and password in the hibernate.cfg.xml file which is located under the resources folder.
 
 # Collaborators
-This was completed with Rory Eiffe during our time training at Revature.
+This was completed by Rory Eiffe and Asberto Alvero during our time training at Revature.
